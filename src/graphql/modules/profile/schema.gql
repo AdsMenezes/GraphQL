@@ -1,0 +1,16 @@
+enum TypeProfile {
+  ADMINISTRATOR
+  OPERATOR
+  USER
+}
+
+type Profile {
+  id: Int,
+  description: String
+  type: TypeProfile
+}
+
+type Query {
+  profiles: [Profile]
+  profile(id: String): Profile
+}
