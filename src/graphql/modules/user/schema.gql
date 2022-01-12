@@ -6,7 +6,19 @@ type User {
   profile: Profile
 }
 
+input UserInput {
+  name: String
+  email: String
+  age: Int
+}
+
 type Query {
   users: [User]
   user(id: String): User
+}
+
+type Mutation {
+  createUser(data: UserInput): User!
+  updateUser(id: String!, data: UserInput): User!
+  deleteUser(id: String!): Boolean
 }

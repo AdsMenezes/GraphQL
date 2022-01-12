@@ -1,0 +1,171 @@
+_type: export
+__export_format: 4
+__export_date: 2022-01-12T15:29:23.396Z
+__export_source: insomnia.desktop.app:v2021.7.2
+resources:
+  - _id: req_ec4853e384464ccda9d581a96214017e
+    parentId: fld_a9b50ad9ab8f48fd91a13cbb7559bd31
+    modified: 1642001342805
+    created: 1641824371185
+    url: "{{ _.baseURL }}"
+    name: Query
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query queryUsers($userId: String, $withProfile: Boolean!)
+        {\n\tusers {\n\t\tid\n\t\tname\n\t\temail\n\t\tprofile @include(if:
+        $withProfile)
+        {\n\t\t\tdescription\n\t\t\ttype\n\t\t}\n\t}\n\t\n\tuser(id: $userId)
+        {\n\t\tname\n\t\tprofile @include(if: $withProfile)
+        {\n\t\t\tdescription\n\t\t\ttype\n\t\t}\n\t}\n}\n","variables":{"userId":"017390f1-4336-4199-965f-5aa7d86c6557","withProfile":true},"operationName":"queryUsers"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_0d2747681c144108a132ba82ab312f46
+    authentication: {}
+    metaSortKey: -1641824371185
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a9b50ad9ab8f48fd91a13cbb7559bd31
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641994135641
+    created: 1641994135641
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1641994135641
+    _type: request_group
+  - _id: wrk_08c842697dd749cb86bdc41e129418f6
+    parentId: null
+    modified: 1641824338802
+    created: 1641824338802
+    name: Graphql
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_2070c4b205174ccabeaf0299b7e48f9f
+    parentId: fld_a9b50ad9ab8f48fd91a13cbb7559bd31
+    modified: 1642001225799
+    created: 1641994155973
+    url: "{{ _.baseURL }}"
+    name: Mutation
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation {\n\tcreateUser(\n\t\tdata: {\n\t\t\tname: \"Jane
+        Doe\"\n\t\t\temail: \"jane@exemple.com\"\n\t\t\tage: 18\n\t\t}\n\t)
+        {\n\t\tid\n\t\tname\n\t\tprofile {\n\t\t\ttype\n\t\t}\n\t}\n\t\n#
+        updateUser(\n# \t\tid: \"c5d17e3b-e994-459d-a82f-051cd519cf17\"\n#
+        \t\tdata: {\n# \t\t\tage: 19\n# \t\t}\n# \t) {\n#\t\t\tname\n#
+        \t\tage\n# \t}\n\t\n# deleteUser(id:
+        \"c5d17e3b-e994-459d-a82f-051cd519cf17\")\n}\n"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_0d2747681c144108a132ba82ab312f46
+    authentication: {}
+    metaSortKey: -1641782963691
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d92b9258ec5a4bb6ad28d75259531b57
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641830028413
+    created: 1641829224980
+    url: "{{ _.baseURL }}"
+    name: Profiles
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query queryProfiles {\n\tprofiles
+        {\n\t\tid\n\t\ttype\n\t\tdescription\n\t}\n\tprofile(id: \"1\")
+        {\n\t\ttype\n\t}\n}\n","operationName":"queryProfiles"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_abde881eceb14dbca4e436c5c8364890
+    authentication: {}
+    metaSortKey: -1641829224980
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_49d3b0681fbb4ba99ee7db73634f7aab
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641830027079
+    created: 1641828847598
+    url: "{{ _.baseURL }}"
+    name: Produts
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query queryProduts($product_id: String) {\n\tproducts
+        {\n\t\tid\n\t\tname\n\t}\n\t\n\tproduct(id: $product_id)
+        {\n\t\tid\n\t\tname\n\t\tvalue\n\t}\n}","variables":{"product_id":"2d6a9c45-9fa6-4f07-b751-b59729681fd7"},"operationName":"queryProduts"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_31c9148ee403488c903db79d916c52ee
+    authentication: {}
+    metaSortKey: -1641828847598
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_116a13f84d17c3960f8d9250d175ed29b15d5a9c
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641824357397
+    created: 1641824338807
+    name: Base Environment
+    data:
+      baseURL: http://localhost:3333
+    dataPropertyOrder:
+      "&":
+        - baseURL
+    color: null
+    isPrivate: false
+    metaSortKey: 1641824338807
+    _type: environment
+  - _id: jar_116a13f84d17c3960f8d9250d175ed29b15d5a9c
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641824338808
+    created: 1641824338808
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_d8dd4273695e42e2b9e3bf085a770f72
+    parentId: wrk_08c842697dd749cb86bdc41e129418f6
+    modified: 1641824338804
+    created: 1641824338804
+    fileName: Graphql
+    contents: ""
+    contentType: yaml
+    _type: api_spec

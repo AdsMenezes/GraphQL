@@ -4,7 +4,10 @@ import { typeDefs, resolvers } from "./graphql"
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  formatError: (err) => {
+    return new Error(err.message)
+  }
 })
 
 server.listen(3333).then(({ url }) => {
